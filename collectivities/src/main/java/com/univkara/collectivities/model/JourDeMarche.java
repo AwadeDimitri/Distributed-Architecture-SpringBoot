@@ -4,11 +4,18 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Jour_De_Marche")
 public class JourDeMarche {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
 	@Column(name = "heure_debut")	
 	private String heureDebut;
@@ -32,6 +39,16 @@ public class JourDeMarche {
 		this.heureFin = heureFin;
 		this.jour = jour;
 		this.frequence = frequence;
+	}
+	
+	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getHeureDebut() {

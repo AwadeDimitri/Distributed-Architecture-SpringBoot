@@ -2,11 +2,18 @@ package com.univkara.collectivities.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "marchés")
 public class Marche {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	
 	@Column(name = "nom")
 	private String nom;
@@ -34,6 +41,15 @@ public class Marche {
 		this.superficie = superficie;
 		this.heureOuverture = heureOuverture;
 		this.heureFermeture = heureFermeture;
+	}
+
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNom() {
