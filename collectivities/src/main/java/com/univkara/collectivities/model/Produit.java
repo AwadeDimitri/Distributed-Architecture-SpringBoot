@@ -29,8 +29,7 @@ public class Produit {
 	
 	@OneToMany(
 			fetch = FetchType.LAZY,
-			targetEntity = Produit.class,
-			mappedBy = 	"produit")
+			mappedBy = "produit")
 	private List<VenteProduit> venteProduits = new ArrayList<>();
 
 	public Produit(String nom, TypeProduit type) {
