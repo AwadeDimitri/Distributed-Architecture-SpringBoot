@@ -1,5 +1,8 @@
 package com.univkara.collectivities.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -7,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -29,6 +33,9 @@ public class JourDeMarche {
 	
 	@Enumerated(EnumType.STRING)
 	private FrequenceMarche frequence;
+	
+	@ManyToMany(mappedBy = "jourDeMarches")
+	private List<Marche> marches = new ArrayList<>();
 
 
 	public JourDeMarche(String heureDebut, String heureFin, Jour jour, FrequenceMarche frequence) {
@@ -80,6 +87,20 @@ public class JourDeMarche {
 	public void setFrequence(FrequenceMarche frequence) {
 		this.frequence = frequence;
 	}
+
+
+
+	public List<Marche> getMarches() {
+		return marches;
+	}
+
+
+
+	public void setMarches(List<Marche> marches) {
+		this.marches = marches;
+	}
+	
+	
 	
 	
 }

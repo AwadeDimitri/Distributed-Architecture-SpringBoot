@@ -1,9 +1,12 @@
 package com.univkara.collectivities.model;
 
 import javax.persistence.Column;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 public class VenteProduit {
 
@@ -17,6 +20,19 @@ public class VenteProduit {
 	
 	@Column(name = "quantite")
 	private int quantite;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "produit_id", referencedColumnName = "id")
+	private Produit produit;
+	
+	@ManyToOne
+	@JoinColumn(name = "marche_id",referencedColumnName = "id")
+	private Marche marche;
+	
+	@ManyToOne
+	@JoinColumn(name = "ville_id",referencedColumnName = "id")
+	private Ville ville;
+
 
 
 	public VenteProduit(int prixUnitaire, int quantite) {
@@ -51,7 +67,34 @@ public class VenteProduit {
 	}
 	
 	
-	
+	public Produit getProduit() {
+		return produit;
+	}
+
+
+	public void setProduit(Produit produit) {
+		this.produit = produit;
+	}
+
+
+	public Marche getMarche() {
+		return marche;
+	}
+
+
+	public void setMarche(Marche marche) {
+		this.marche = marche;
+	}
+
+
+	public Ville getVille() {
+		return ville;
+	}
+
+
+	public void setVille(Ville ville) {
+		this.ville = ville;
+	}
 	
 	
 }

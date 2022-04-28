@@ -1,10 +1,14 @@
 package com.univkara.collectivities.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,7 +29,9 @@ public class Ville {
 	@Column(name = "densite")
 	private int densite;
 	
-
+	@OneToMany(mappedBy = "ville")
+	private List<Marche> marches = new ArrayList<>();
+	
 	public Ville(String nom, int population, int densite) {
 		super();
 		this.nom = nom;

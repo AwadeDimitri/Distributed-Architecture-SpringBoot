@@ -1,10 +1,19 @@
 package com.univkara.collectivities.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -30,6 +39,22 @@ public class Marche {
 	
 	@Column(name = "heure_fermeture")
 	private String heureFermeture;
+	
+	@OneToMany(
+			fetch = FetchType.LAZY,
+			mappedBy = "marche")
+	private List<VenteProduit> venteProduits = new ArrayList<>();
+	
+	@ManyToOne
+	@JoinColumn(name = "ville_id", referencedColumnName = "id")
+	private Ville ville;
+	
+	@ManyToMany
+	@JoinTable(
+			name = "Marche_JourDeMarche",
+			joinColumns = {@JoinColumn(name = "marche_id")},
+			inverseJoinColumns = {@JoinColumn(name = "jour_De_Marche_id")})
+	private List<JourDeMarche> jourDeMarches = new ArrayList<>();
 	
 
 	public Marche(String nom, String emplacement, String superficie, String heureOuverture, String heureFermeture) {
@@ -89,5 +114,38 @@ public class Marche {
 	public void setHeureFermeture(String heureFermeture) {
 		this.heureFermeture = heureFermeture;
 	}
+
+
+	public List<VenteProduit> getVenteProduits() {
+		return venteProduits;
+	}
+
+
+	public void setVenteProduits(List<VenteProduit> venteProduits) {
+		this.venteProduits = venteProduits;
+	}
+
+
+	public List<JourDeMarche> getJourDeMarches() {
+		return jourDeMarches;
+	}
+
+
+	public void setJourDeMarches(List<JourDeMarche> jourDeMarches) {
+		this.jourDeMarches = jourDeMarches;
+	}
+
+
+	public Ville getVille() {
+		return ville;
+	}
+
+
+	public void setVille(Ville ville) {
+		this.ville = ville;
+	}
+	
+	
+	
 	
 }
