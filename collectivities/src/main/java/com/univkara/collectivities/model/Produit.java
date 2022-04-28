@@ -13,6 +13,7 @@ public class Produit {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Long id;
 	
 	@Column(name = "nom")
@@ -20,10 +21,6 @@ public class Produit {
 	
 	@Column(name = "type")
 	private TypeProduit type;
-
-	public Produit() {
-		super();
-	}
 
 	public Produit(String nom, TypeProduit type) {
 		super();

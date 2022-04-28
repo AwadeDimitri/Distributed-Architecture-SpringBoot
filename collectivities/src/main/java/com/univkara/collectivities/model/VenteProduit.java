@@ -9,6 +9,7 @@ public class VenteProduit {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Long id;
 	
 	@Column(name = "prix_unitaire")
@@ -16,10 +17,6 @@ public class VenteProduit {
 	
 	@Column(name = "quantite")
 	private int quantite;
-
-	public VenteProduit() {
-		super();
-	}
 
 
 	public VenteProduit(int prixUnitaire, int quantite) {

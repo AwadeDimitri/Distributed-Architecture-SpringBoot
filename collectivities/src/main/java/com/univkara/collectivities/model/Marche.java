@@ -13,6 +13,7 @@ public class Marche {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Long id;
 	
 	@Column(name = "nom")
@@ -30,9 +31,6 @@ public class Marche {
 	@Column(name = "heure_fermeture")
 	private String heureFermeture;
 	
-	public Marche() {
-		super();
-	}
 
 	public Marche(String nom, String emplacement, String superficie, String heureOuverture, String heureFermeture) {
 		super();

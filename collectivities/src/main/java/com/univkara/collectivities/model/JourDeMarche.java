@@ -15,6 +15,7 @@ public class JourDeMarche {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Long id;
 
 	@Column(name = "heure_debut")	
@@ -29,9 +30,6 @@ public class JourDeMarche {
 	@Enumerated(EnumType.STRING)
 	private FrequenceMarche frequence;
 
-	public JourDeMarche() {
-		super();
-	}
 
 	public JourDeMarche(String heureDebut, String heureFin, Jour jour, FrequenceMarche frequence) {
 		super();

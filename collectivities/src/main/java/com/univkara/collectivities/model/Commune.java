@@ -13,6 +13,7 @@ public class Commune {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Long id;
 
 	@Column(name = "nom")
@@ -23,10 +24,6 @@ public class Commune {
 	
 	@Column(name ="poulation")
 	private int population;
-	
-	public Commune() {
-		super();
-	}
 
 	public Commune(String nom, String dateCreation, int population) {
 		super();

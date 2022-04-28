@@ -13,6 +13,7 @@ public class Ville {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Long id;
 	
 	@Column(name = "nom")
@@ -24,9 +25,6 @@ public class Ville {
 	@Column(name = "densite")
 	private int densite;
 	
-	public Ville() {
-		super();
-	}
 
 	public Ville(String nom, int population, int densite) {
 		super();

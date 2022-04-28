@@ -13,6 +13,7 @@ public class Region {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Long id;
 	
 	@Column(name = "nom")
@@ -25,10 +26,6 @@ public class Region {
 	private float superficie;
 	
 	
-	
-	public Region() {
-		super();
-	}
 	public Region(String nom, int population, float superficie) {
 		super();
 		this.nom = nom;
