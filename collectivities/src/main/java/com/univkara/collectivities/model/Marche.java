@@ -55,18 +55,24 @@ public class Marche {
 			joinColumns = {@JoinColumn(name = "marche_id")},
 			inverseJoinColumns = {@JoinColumn(name = "jour_De_Marche_id")})
 	private List<JourDeMarche> jourDeMarches = new ArrayList<>();
-	
 
-	public Marche(String nom, String emplacement, String superficie, String heureOuverture, String heureFermeture) {
-		super();
+
+	public Marche(String nom, String emplacement, String heureFermeture, String heureOuverture, String superficie,
+			List<JourDeMarche> jourDeMarches, List<VenteProduit> venteProduits, Ville ville) {
 		this.nom = nom;
 		this.emplacement = emplacement;
 		this.superficie = superficie;
 		this.heureOuverture = heureOuverture;
 		this.heureFermeture = heureFermeture;
+		this.venteProduits = venteProduits;
+		this.ville = ville;
+		this.jourDeMarches = jourDeMarches;
 	}
 
-	
+	public Marche() {
+		
+	}
+
 	public Long getId() {
 		return id;
 	}
