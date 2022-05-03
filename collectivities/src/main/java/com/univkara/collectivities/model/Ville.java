@@ -32,14 +32,24 @@ public class Ville {
 	@OneToMany(mappedBy = "ville")
 	private List<Marche> marches = new ArrayList<>();
 	
-	public Ville(String nom, int population, int densite) {
+	
+	
+	public Ville() {
+		super();
+	}
+
+	public Ville(String nom, int population, int densite, List<Marche> marches) {
 		super();
 		this.nom = nom;
 		this.population = population;
 		this.densite = densite;
+		this.marches = marches;
 	}
 
-	
+
+
+
+
 	public Long getId() {
 		return id;
 	}
@@ -71,6 +81,17 @@ public class Ville {
 	public void setDensite(int densite) {
 		this.densite = densite;
 	}
+
+
+	public List<Marche> getMarches() {
+		return marches;
+	}
+
+
+	public void setMarches(List<Marche> marches) {
+		this.marches = marches;
+	}
+	
 	
 	
 }
